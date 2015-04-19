@@ -1,0 +1,3 @@
+version=3
+opts="filenamemangle=s/(?:.*)?v?(\d[\d\.]*)\.tar\.gz/erlang-redis-client_$1.tar.gz/" \
+         https://github.com/wooga/eredis/tags (?:.*/)?v?(\d[\d\.]*)\.tar\.gz

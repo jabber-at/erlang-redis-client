@@ -1,0 +1,5 @@
+erlang-redis-client (1.0.7-1) unstable; urgency=low
+
+  * Initial release (Closes: #781905)
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 19 Apr 2015 17:12:17 +0200

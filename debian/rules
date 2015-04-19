@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+#DH_VERBOSE = 1
+
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+DESTDIR=$(CURDIR)/debian/erlang-redis-client
+
+%:
+	dh $@ --buildsystem=rebar --with rebar
+
+override_dh_auto_install:
+	dh_auto_install
+	for file in include/*.hrl ; do \
+		fname=$$(basename $${file}) ; \
+		subdir=$$(basename $$(dirname $${file})) ; \
+		if [ ! -f $(DESTDIR)/usr/lib/erlang/lib/eredis-$(DEB_VERSION_UPSTREAM)/$${subdir}/$${fname} ] ; then \
+			install -m 755 -d $(DESTDIR)/usr/lib/erlang/lib/eredis-$(DEB_VERSION_UPSTREAM)/$${subdir} ; \
+			install -m 644 $${file} \
+			$(DESTDIR)/usr/lib/erlang/lib/eredis-$(DEB_VERSION_UPSTREAM)/$${subdir} ; \
+		fi ; \
+	done
+
+get-orig-source:
+	dh_testdir
+	wget -O ../erlang-eredis_$(DEB_VERSION_UPSTREAM).orig.tar.gz \
+		https://github.com/wooga/eredis/archive/v$(DEB_VERSION_UPSTREAM).tar.gz
