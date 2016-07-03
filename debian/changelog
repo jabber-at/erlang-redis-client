@@ -1,8 +1,10 @@
-erlang-redis-client (1.0.8-1~bpo8+1) jessie-backports; urgency=medium
+erlang-redis-client (1.0.8-2) unstable; urgency=medium
 
-  * Rebuild for jessie-backports.
+  * Updated debian/copyright
+  * Updated Standards-Version: 3.9.8 (no changes needed)
+  * Updated Vcs-* fields in debian/control
 
- -- Philipp Huebner <debalance@debian.org>  Sun, 18 Oct 2015 10:05:28 +0200
+ -- Philipp Huebner <debalance@debian.org>  Sun, 26 Jun 2016 15:56:16 +0200
 
 erlang-redis-client (1.0.8-1) unstable; urgency=medium
 
