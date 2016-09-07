@@ -1,3 +1,9 @@
+erlang-redis-client (1.0.8-3) unstable; urgency=medium
+
+  * Build-Depend on erlang-crypto (Closes: #836888)
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 07 Sep 2016 11:20:27 +0200
+
 erlang-redis-client (1.0.8-2) unstable; urgency=medium
 
   * Updated debian/copyright
