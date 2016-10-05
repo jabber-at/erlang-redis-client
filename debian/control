@@ -2,7 +2,7 @@ Source: erlang-redis-client
 Section: libs
 Priority: optional
 Maintainer: Philipp Huebner <debalance@debian.org>
-Build-Depends: debhelper (>= 9), dh-rebar, erlang-crypto, erlang-eunit, erlang-syntax-tools
+Build-Depends: debhelper (>= 9), dh-rebar, erlang-base, erlang-crypto, erlang-eunit, erlang-syntax-tools
 Standards-Version: 3.9.8
 Homepage: https://github.com/wooga/eredis
 Vcs-Git: https://anonscm.debian.org/git/users/debalance/erlang-redis-client.git
