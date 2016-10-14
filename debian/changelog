@@ -1,8 +1,20 @@
-erlang-redis-client (1.0.8-2~bpo8+1) jessie-backports; urgency=medium
+erlang-redis-client (1.0.8-4~bpo8+1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports.
 
- -- Philipp Huebner <debalance@debian.org>  Sun, 03 Jul 2016 12:31:07 +0200
+ -- Philipp Huebner <debalance@debian.org>  Fri, 14 Oct 2016 08:30:34 +0200
+
+erlang-redis-client (1.0.8-4) unstable; urgency=medium
+
+  * Added erlang-base to Build-Depends
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 05 Oct 2016 15:51:44 +0200
+
+erlang-redis-client (1.0.8-3) unstable; urgency=medium
+
+  * Build-Depend on erlang-crypto (Closes: #836888)
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 07 Sep 2016 11:20:27 +0200
 
 erlang-redis-client (1.0.8-2) unstable; urgency=medium
 
