@@ -1,3 +1,9 @@
+erlang-redis-client (1.0.8-4~bpo7+1) wheezy-backports-sloppy; urgency=medium
+
+  * Rebuild for wheezy-backports-sloppy.
+
+ -- Philipp Huebner <debalance@debian.org>  Mon, 13 Mar 2017 20:50:55 +0100
+
 erlang-redis-client (1.0.8-4) unstable; urgency=medium
 
   * Added erlang-base to Build-Depends
