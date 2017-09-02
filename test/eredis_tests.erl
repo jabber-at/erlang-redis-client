@@ -5,6 +5,10 @@
 
 -import(eredis, [create_multibulk/1]).
 
+connect_test() ->
+    ?assertMatch({ok, _}, eredis:start_link("127.0.0.1", 6379)),
+    ?assertMatch({ok, _}, eredis:start_link("localhost", 6379)).
+
 get_set_test() ->
     C = c(),
     ?assertMatch({ok, _}, eredis:q(C, ["DEL", foo])),
@@ -108,11 +112,23 @@ q_noreply_test() ->
     %% Even though q_noreply doesn't wait, it is sent before subsequent requests:
     ?assertEqual({ok, <<"bar">>}, eredis:q(C, ["GET", foo])).
 
+q_async_test() ->
+    C = c(),
+    ?assertEqual({ok, <<"OK">>}, eredis:q(C, ["SET", foo, bar])),
+    ?assertEqual(ok, eredis:q_async(C, ["GET", foo], self())),
+    receive
+        {response, Msg} ->
+            ?assertEqual(Msg, {ok, <<"bar">>}),
+            ?assertMatch({ok, _}, eredis:q(C, ["DEL", foo]))
+    end.
+
 c() ->
     Res = eredis:start_link(),
     ?assertMatch({ok, _}, Res),
     {ok, C} = Res,
     C.
+
+
 
 c_no_reconnect() ->
     Res = eredis:start_link("127.0.0.1", 6379, 0, "", no_reconnect),
