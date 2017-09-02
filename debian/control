@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Philipp Huebner <debalance@debian.org>
 Build-Depends: debhelper (>= 9), dh-rebar, erlang-base, erlang-crypto, erlang-eunit, erlang-syntax-tools
-Standards-Version: 4.0.0
+Standards-Version: 4.1.0
 Homepage: https://github.com/wooga/eredis
 Vcs-Git: https://anonscm.debian.org/git/users/debalance/erlang-redis-client.git
 Vcs-Browser: https://anonscm.debian.org/git/users/debalance/erlang-redis-client.git
