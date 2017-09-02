@@ -3,8 +3,8 @@
 %%
 %% Usage:
 %%   {ok, Client} = eredis:start_link().
-%%   {ok, <<"OK">>} = eredis:q(["SET", "foo", "bar"]).
-%%   {ok, <<"bar">>} = eredis:q(["GET", "foo"]).
+%%   {ok, <<"OK">>} = eredis:q(Client, ["SET", "foo", "bar"]).
+%%   {ok, <<"bar">>} = eredis:q(Client, ["GET", "foo"]).
 
 -module(eredis).
 -include("eredis.hrl").
@@ -14,7 +14,8 @@
 -define(TIMEOUT, 5000).
 
 -export([start_link/0, start_link/1, start_link/2, start_link/3, start_link/4,
-         start_link/5, start_link/6, stop/1, q/2, q/3, qp/2, qp/3, q_noreply/2]).
+         start_link/5, start_link/6, stop/1, q/2, q/3, qp/2, qp/3, q_noreply/2,
+         q_async/2, q_async/3]).
 
 %% Exported for testing
 -export([create_multibulk/1]).
@@ -97,11 +98,22 @@ qp(Client, Pipeline, Timeout) ->
     pipeline(Client, Pipeline, Timeout).
 
 -spec q_noreply(Client::client(), Command::[any()]) -> ok.
-%% @doc
+%% @doc Executes the command but does not wait for a response and ignores any errors.
 %% @see q/2
-%% Executes the command but does not wait for a response and ignores any errors.
 q_noreply(Client, Command) ->
     cast(Client, Command).
+
+-spec q_async(Client::client(), Command::[any()]) -> ok.
+% @doc Executes the command, and sends a message to this process with the response (with either error or success). Message is of the form `{response, Reply}', where `Reply' is the reply expected from `q/2'.
+q_async(Client, Command) ->
+    q_async(Client, Command, self()).
+
+-spec q_async(Client::client(), Command::[any()], Pid::pid()|atom()) -> ok.
+%% @doc Executes the command, and sends a message to `Pid' with the response (with either or success).
+%% @see 1_async/2
+q_async(Client, Command, Pid) when is_pid(Pid) ->
+    Request = {request, create_multibulk(Command), Pid},
+    gen_server:cast(Client, Request).
 
 %%
 %% INTERNAL HELPERS
@@ -137,8 +149,8 @@ to_bulk(B) when is_binary(B) ->
 %% as we do not want floats to be stored in Redis. Your future self
 %% will thank you for this.
 to_binary(X) when is_list(X)    -> list_to_binary(X);
-to_binary(X) when is_atom(X)    -> list_to_binary(atom_to_list(X));
+to_binary(X) when is_atom(X)    -> atom_to_binary(X, utf8);
 to_binary(X) when is_binary(X)  -> X;
-to_binary(X) when is_integer(X) -> list_to_binary(integer_to_list(X));
+to_binary(X) when is_integer(X) -> integer_to_binary(X);
 to_binary(X) when is_float(X)   -> throw({cannot_store_floats, X});
 to_binary(X)                    -> term_to_binary(X).
