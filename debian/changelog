@@ -1,3 +1,9 @@
+erlang-redis-client (1.1.0-1~bpo8+1) jessie-backports-sloppy; urgency=medium
+
+  * Rebuild for jessie-backports-sloppy.
+
+ -- Philipp Huebner <debalance@debian.org>  Sat, 30 Sep 2017 14:15:33 +0200
+
 erlang-redis-client (1.1.0-1) unstable; urgency=medium
 
   * New upstream version 1.1.0
