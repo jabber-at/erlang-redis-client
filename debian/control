@@ -1,17 +1,24 @@
 Source: erlang-redis-client
-Section: libs
-Priority: optional
 Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
 Uploaders: Philipp Huebner <debalance@debian.org>
-Build-Depends: debhelper (>= 9), dh-rebar, erlang-base, erlang-crypto, erlang-eunit, erlang-syntax-tools
+Section: libs
+Priority: optional
+Build-Depends: debhelper (>= 11~),
+               dh-rebar,
+               erlang-base,
+               erlang-crypto,
+               erlang-eunit,
+               erlang-syntax-tools
 Standards-Version: 4.1.3
-Homepage: https://github.com/wooga/eredis
-Vcs-Git: https://salsa.debian.org/ejabberd-packaging-team/erlang-redis-client.git
 Vcs-Browser: https://salsa.debian.org/ejabberd-packaging-team/erlang-redis-client
+Vcs-Git: https://salsa.debian.org/ejabberd-packaging-team/erlang-redis-client.git
+Homepage: https://github.com/wooga/eredis
 
 Package: erlang-redis-client
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, erlang-base | ${erlang-abi:Depends},
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         erlang-base | ${erlang-abi:Depends},
          ${erlang:Depends}
 Description: Redis client for Erlang applications
  Non-blocking Redis client for Erlang applications with focus on performance

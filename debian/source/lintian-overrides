@@ -1,0 +1,2 @@
+erlang-redis-client source: debian-watch-does-not-check-gpg-signature
+erlang-redis-client source: testsuite-autopkgtest-missing
