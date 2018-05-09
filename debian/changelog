@@ -1,3 +1,11 @@
+erlang-redis-client (1.1.0-3) unstable; urgency=medium
+
+  * Switched to debhelper 11
+  * Use secure copyright format uri in debian/copyright
+  * Updated Standards-Version: 4.1.4 (no changes needed)
+
+ -- Philipp Huebner <debalance@debian.org>  Wed, 09 May 2018 13:35:34 +0200
+
 erlang-redis-client (1.1.0-2) unstable; urgency=medium
 
   * Set Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
