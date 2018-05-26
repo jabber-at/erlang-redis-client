@@ -3,7 +3,7 @@ Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
 Uploaders: Philipp Huebner <debalance@debian.org>
 Section: libs
 Priority: optional
-Build-Depends: debhelper (>= 11~),
+Build-Depends: debhelper (>= 10~),
                dh-rebar,
                erlang-base,
                erlang-crypto,
