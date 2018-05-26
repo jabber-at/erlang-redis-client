@@ -1,6 +1,5 @@
 Source: erlang-redis-client
-Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
-Uploaders: Philipp Huebner <debalance@debian.org>
+Maintainer: Mathias Ertl <mati@jabber.at>
 Section: libs
 Priority: optional
 Build-Depends: debhelper (>= 10~),
