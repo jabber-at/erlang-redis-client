@@ -3,7 +3,7 @@ Upstream-Name: eredis
 Source: https://github.com/wooga/eredis
 
 Files: *
-Copyright: 2011-2018 wooga GmbH
+Copyright: 2011-2019 wooga GmbH
 License: Expat
  The MIT License
  .
@@ -28,7 +28,7 @@ License: Expat
  THE SOFTWARE.
 
 Files: debian/*
-Copyright: 2015-2018 Philipp Huebner <debalance@debian.org>
+Copyright: 2015-2019 Philipp Huebner <debalance@debian.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
