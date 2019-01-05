@@ -1,3 +1,11 @@
+erlang-redis-client (1.2.0-1) unstable; urgency=medium
+
+  * Enabled DH_VERBOSE in debian/rules
+  * New upstream version 1.2.0
+  * Updated Standards-Version: 4.2.1 (no changes needed)
+
+ -- Philipp Huebner <debalance@debian.org>  Sun, 07 Oct 2018 18:16:21 +0200
+
 erlang-redis-client (1.1.0-3) unstable; urgency=medium
 
   * Switched to debhelper 11
