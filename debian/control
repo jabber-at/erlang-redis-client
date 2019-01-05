@@ -1,8 +1,9 @@
 Source: erlang-redis-client
 Maintainer: Mathias Ertl <mati@jabber.at>
+XSBC-Original-Maintainer: Ejabberd Packaging Team <ejabberd@packages.debian.org>
 Section: libs
 Priority: optional
-Build-Depends: debhelper (>= 10~),
+Build-Depends: debhelper (>= 11~),
                dh-rebar,
                erlang-base,
                erlang-crypto,
